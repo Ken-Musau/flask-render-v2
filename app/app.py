@@ -8,15 +8,15 @@ from flask_restful import Api, Resource
 
 from models import db, Bird
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.json.compact = False
+myApp = Flask(__name__)
+myApp.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
+myApp.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+myApp.json.compact = False
 
-migrate = Migrate(app, db)
-db.init_app(app)
+migrate = Migrate(myApp, db)
+db.init_myApp(myApp)
 
-api = Api(app)
+api = Api(myApp)
 
 
 class Birds(Resource):
