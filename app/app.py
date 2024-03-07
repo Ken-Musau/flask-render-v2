@@ -19,6 +19,11 @@ db.init_app(app)
 api = Api(app)
 
 
+class Home(Resource):
+    def get(self):
+        return make_response("<h1>Welcome to birds App Data Base</h1>")
+
+
 class Birds(Resource):
 
     def get(self):
@@ -34,3 +39,4 @@ class BirdByID(Resource):
 
 api.add_resource(BirdByID, '/birds/<int:id>')
 api.add_resource(Birds, '/birds')
+api.add_resource(Home, "/")
